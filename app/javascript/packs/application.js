@@ -14,5 +14,3 @@ ActiveStorage.start();
 
 require("jquery");
 import "bootstrap";
-
-console.log("hello world to you as well!");
