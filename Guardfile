@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/inflector'
 # Defines the matching rules for Guard.
 guard :minitest, all_on_start: false do
