@@ -12,7 +12,7 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   before_save { email.downcase! }
 
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -23,6 +23,11 @@ class User < ApplicationRecord
 
   def self.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  def feed
+    # Micropost.where('user_id = ?', id)
+    microposts
   end
 
   def remember
